@@ -1,23 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Webpage</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1 { color: #0066cc; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FacadeGuard Robotics — Autonomous Facade Maintenance</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B1120',
+                            navy: '#0F172A',
+                            surface: '#1E293B',
+                            accent: '#2563EB',
+                            highlight: '#38BDF8',
+                            muted: '#94A3B8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B1120;
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Effect */
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(56, 189, 248, 0.05) 40%, rgba(11, 17, 32, 0) 70%);
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Subtle Grid Background Pattern */
+        .grid-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Glassmorphism Card Effect */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
 </head>
-<body>
-  <h1>Welcome to My Website</h1>
-  <p>This site is hosted completely free on GitHub Pages!</p>
+<body class="min-h-screen flex flex-col justify-between relative grid-pattern antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Background Ambient Light -->
+    <div class="ambient-glow"></div>
+
+    <!-- Header Navigation -->
+    <header class="relative z-10 w-full max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <!-- Brand Mark / Logo Icon -->
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-accent to-brand-highlight flex items-center justify-center shadow-lg shadow-brand-accent/20">
+                <i class="fa-solid fa-robot text-white text-lg"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-white">FacadeGuard <span class="text-brand-highlight font-medium">Robotics</span></span>
+        </div>
+
+        <!-- Launching Soon Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-medium text-brand-muted border border-white/10">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Launching Soon
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="relative z-10 w-full max-w-4xl mx-auto px-6 py-12 md:py-20 flex flex-col items-center text-center">
+        
+        <!-- Status Tag -->
+        <div class="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-sm font-medium text-brand-highlight border border-brand-accent/30 shadow-inner">
+            <i class="fa-solid fa-shield-halved text-xs"></i>
+            The Future of Facade Care
+        </div>
+
+        <!-- Project Title & Subtitle -->
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+            Autonomous Mid-Rise <br class="hidden sm:block"/>
+            <span class="bg-gradient-to-r from-brand-highlight via-blue-400 to-brand-accent bg-clip-text text-transparent">Facade Maintenance & Inspection</span>
+        </h1>
+
+        <!-- Value Proposition -->
+        <p class="text-lg sm:text-xl text-brand-muted max-w-2xl leading-relaxed font-normal mb-10">
+            Replacing high-risk manual facade cleaning with safe, portable, autonomous cable-driven robotics.
+        </p>
+
+        <!-- Feature Pillars (No Specs / Simple Visual Representation) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl mb-12 text-left">
+            <div class="p-5 rounded-2xl glass-card border border-white/5 hover:border-white/10 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-highlight mb-3">
+                    <i class="fa-solid fa-user-shield text-base"></i>
+                </div>
+                <h3 class="text-white font-semibold text-base mb-1">Zero Risk</h3>
+                <p class="text-brand-muted text-sm leading-snug">Eliminates dangerous human rope access and scaffolding setup.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl glass-card border border-white/5 hover:border-white/10 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-highlight mb-3">
+                    <i class="fa-solid fa-bolt text-base"></i>
+                </div>
+                <h3 class="text-white font-semibold text-base mb-1">Rapid Deployment</h3>
+                <p class="text-brand-muted text-sm leading-snug">Portable design engineered for quick, non-invasive building setups.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl glass-card border border-white/5 hover:border-white/10 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-highlight mb-3">
+                    <i class="fa-solid fa-chart-line text-base"></i>
+                </div>
+                <h3 class="text-white font-semibold text-base mb-1">Smart Inspection</h3>
+                <p class="text-brand-muted text-sm leading-snug">Precision exterior cleaning combined with intelligent structural auditing.</p>
+            </div>
+        </div>
+
+        <!-- Contact Box -->
+        <div class="w-full max-w-md p-6 rounded-2xl glass-card border border-white/10 shadow-2xl flex flex-col items-center text-center">
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand-muted mb-2">Get in Touch</p>
+            <p class="text-sm text-slate-300 mb-4">For commercial inquiries, pilots, or strategic partnership details:</p>
+            
+            <a href="mailto:info@facadeguard.co.uk" class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-brand-accent hover:bg-blue-600 text-white font-medium transition-all shadow-lg shadow-brand-accent/30 hover:shadow-brand-accent/50 group">
+                <i class="fa-solid fa-envelope text-brand-highlight group-hover:text-white transition-colors"></i>
+                <span>info@facadeguard.co.uk</span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 w-full max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between border-t border-white/5 gap-4 text-xs text-brand-muted">
+        <div>
+            &copy; 2026 FacadeGuard Robotics. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+            <span class="hover:text-slate-300 transition-colors cursor-default">Privacy</span>
+            <span class="hover:text-slate-300 transition-colors cursor-default">Terms</span>
+            <a href="mailto:info@facadeguard.co.uk" class="hover:text-brand-highlight transition-colors">Contact</a>
+        </div>
+    </footer>
+
 </body>
 </html>
